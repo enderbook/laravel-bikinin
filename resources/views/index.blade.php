@@ -10,7 +10,7 @@
 
   <!-- Favicons -->
   <link rel="shortcut icon" type="image/x-icon" href="logoweb.png">
-  <link href="{{ url('template2/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="template2/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="{{ url('template2/https://fonts.googleapis.com') }}" rel="preconnect">

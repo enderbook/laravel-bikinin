@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Console;
+
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+
+class Kernel extends ConsoleKernel
+{
+    /**
+     * Define the application's command schedule.
+     *
+     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @return void
+     */
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->command('job:update-status')->dailyAt('08:00');
+        $schedule->command('pay:update-status')->dailyAt('08:00');
+        $schedule->command('user:unblock')->dailyAt('08:00');
+        $schedule->command('projek:bersih')->dailyAt('08:00');
+        $schedule->command('kontrak:dealine-kontrak')->cron('0 8 */3 * *');
+
+    }
+
+    /**
+     * Register the commands for the application.
+     *
+     * @return void
+     */
+    protected function commands()
+    {
+        $this->load(__DIR__.'/Commands');
+
+        require base_path('routes/console.php');
+    }
+
+    
+}
